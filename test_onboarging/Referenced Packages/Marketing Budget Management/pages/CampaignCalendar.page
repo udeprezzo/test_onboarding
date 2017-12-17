@@ -1,0 +1,75 @@
+<apex:page Controller="MBM.CampaignCalendar" showHeader="true" sidebar="true" contentType="text/html">
+   
+    <apex:stylesheet value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/resources/css/ext-all.css')}"/>
+    
+    <apex:includeScript value="{!URLFOR($Resource.MBM__ExtJS3, '/adapter/ext/ext-base.js')}"/>            
+    <apex:includeScript value="{!$Resource.MBM__extAlldebug340Edit}"/>
+    
+    <!-- Calendar-specific includes -->
+    <apex:stylesheet value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/calendar/resources/css/calendar.css')}"/>
+    
+    <apex:includeScript value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/calendar/src/Ext.calendar.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/calendar/src/templates/DayHeaderTemplate.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/calendar/src/templates/DayBodyTemplate.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/calendar/src/templates/DayViewTemplate.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/calendar/src/templates/BoxLayoutTemplate.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/calendar/src/templates/MonthViewTemplate.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/calendar/src/dd/CalendarScrollManager.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/calendar/src/dd/StatusProxy.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/calendar/src/dd/CalendarDD.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/calendar/src/dd/DayViewDD.js')}" />
+    
+    
+    <apex:includeScript value="{!IF(LocalModeEnabled,'http://localhost/CampaignCalendar/EventRecord.js',$Resource.MBM__ExtJS+'/extJS/calendar/src/EventRecord.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/calendar/src/views/MonthDayDetailView.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/calendar/src/widgets/CalendarPicker.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/calendar/src/WeekEventRenderer.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/calendar/src/views/CalendarView.js')}" />
+    
+    <!-- custom fixes/items to include, fix for the header view of the calendar (day mode) -->
+    <apex:includeScript value="{!$Resource.MBM__ExtJSCalendarViewEdit}"/>
+    
+    <apex:includeScript value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/calendar/src/views/MonthView.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/calendar/src/views/DayBodyView.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/calendar/src/views/DayView.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/calendar/src/views/WeekView.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/calendar/src/widgets/ReminderField.js')}" />
+    
+    
+   	<apex:includeScript value="{!URLFOR($Resource.MBM__MBMExtJsCalendarUpdates, '/DayHeaderView.js')}" />
+   	<apex:includeScript value="{!URLFOR($Resource.MBM__MBMExtJsCalendarUpdates, '/DateRangeField.js')}" />
+   	<apex:includeScript value="{!URLFOR($Resource.MBM__MBMExtJsCalendarUpdates, '/EventEditWindow.js')}" />
+   	<apex:includeScript value="{!URLFOR($Resource.MBM__MBMExtJsCalendarUpdates, '/EventEditForm.js')}" />
+   	<apex:includeScript value="{!URLFOR($Resource.MBM__MBMExtJsCalendarUpdates, '/CalendarPanel.js')}" />
+   	<apex:includeScript value="{!URLFOR($Resource.MBM__MBMExtJsCalendarUpdates, '/CampaignTypeCheckBox.js')}" />
+   	
+   	<apex:includeScript value="{!URLFOR($Resource.MBM__MBMExtJsCalendarUpdates, '/MBM_CalendarUtils.js')}" />
+   	<apex:includeScript value="{!URLFOR($Resource.MBM__MBMExtJsCalendarUpdates, '/MBM_EventMappings.js')}" />
+   	<apex:includeScript value="{!URLFOR($Resource.MBM__MBMExtJsCalendarUpdates, '/MBM_CalendarFormUtils.js')}" />
+   	<apex:includeScript value="{!URLFOR($Resource.MBM__MBMExtJsCalendarUpdates, '/MBM_CalendarInitialization.js')}" />
+                    
+    
+    <!-- AJAX Toolkit -->
+    <apex:includeScript value="{!URLFOR('/soap/ajax/23.0/connection.js')}" />
+    
+                
+    <!-- Calendar App -->
+    <apex:stylesheet value="{!URLFOR($Resource.MBM__ExtJS, '/extJS/calendar/resources/css/examples.css')}"/>
+    <apex:stylesheet value="{!$Resource.MBM__DI_MBM_Styles}"/>
+    <apex:stylesheet value="{!$Resource.MBM__DI_MBM_CalendarStyles}"/>
+    
+    <script type="text/javascript">
+        sforce.connection.sessionId = '{!$Api.Session_Id}';
+        Ext.BLANK_IMAGE_URL = "{!$Resource.ExtJS}/extJS/resources/images/default/s.gif";
+        var entityPrefix = "{!entityPrefix}";
+        var apiServerUrl = "{!apiServerUrl}";
+		var currPageUrl = "{!currPageUrl}";
+    </script>
+
+	<div id="app-header">
+	    <h1>Campaign Budget Calendar</h1>
+	    <span id="app-msg" class="x-hidden"></span>
+	</div>
+	<div id="calendar-ct" ></div>
+	            
+</apex:page>

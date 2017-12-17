@@ -1,0 +1,8 @@
+<apex:page standardController="MBM__Marketing_Program_Budget__c" extensions="MBM.Marketing_Programs" tabstyle="MBM__Marketing_Program_Budget__c" showheader="true">
+    
+    <apex:sectionHeader title="Marketing Program Budgets" subtitle="{!MBM__Marketing_Program_Budget__c.name}"/>
+    <apex:detail subject="{!MBM__Marketing_Program_Budget__c.id}" relatedList="false" title="false"/>
+    
+ 	<apex:relatedList title="Assigned Marketing Campaign Budgets" pageSize="10" list="Marketing_Campaign_Budgets__r" />
+	
+</apex:page>

@@ -1,0 +1,10 @@
+<apex:page standardController="MBM__Marketing_Budget__c" extensions="MBM.Marketing_Budget_Groups" tabstyle="MBM__Marketing_Budget__c" showheader="true" >
+   
+	<apex:sectionHeader title="Marketing Budget Group" subtitle="{!MBM__Marketing_Budget__c.name}"/>
+    
+    <apex:detail subject="{!MBM__Marketing_Budget__c.id}" relatedList="false" title="false"/>
+	
+	<!--  customization area start -->	
+	<apex:relatedList title="Assigned Marketing Program Budgets" pageSize="10" list="Programs__r" /> 
+	
+</apex:page>

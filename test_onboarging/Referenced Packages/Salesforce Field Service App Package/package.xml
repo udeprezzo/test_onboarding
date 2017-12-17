@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Salesforce Field Service App Package</fullName>
+    <apiAccessLevel>Unrestricted</apiAccessLevel>
+    <description>This package contains the Salesforce Field Service Connected App for all officially supported mobile devices</description>
+    <namespacePrefix>sf_fieldservice</namespacePrefix>
+    <version>36.0</version>
+</Package>
