@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>S8e_F3d_S5e_for_A5d_o3h_m4e_app_detail</fullName>
+    <apiAccessLevel>Unrestricted</apiAccessLevel>
+    <modules>
+        <module>
+            <label>S8e_F3d_S5e_for_A5d_o3h_m4e_app_detail</label>
+            <moduleType>mobile_app_detail</moduleType>
+            <name>S8e_F3d_S5e_for_A5d_o3h_m4e_app_detail</name>
+            <types>
+                <members>S8e_F3d_S5e_for_A5d_o3h_m4e_app_detailMobileApplicationDetail</members>
+                <name>MobileApplicationDetail</name>
+            </types>
+            <types>
+                <members>sf_fieldservice__S8e_F3d_S5e_for_A5d_o3h_m4e_app_detail</members>
+                <name>Module</name>
+            </types>
+            <version>46.0</version>
+        </module>
+    </modules>
+    <namespacePrefix>sf_fieldservice</namespacePrefix>
+    <version>36.0</version>
+</Package>

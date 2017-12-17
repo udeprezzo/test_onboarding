@@ -1,0 +1,20 @@
+<apex:page standardController="MBM__Marketing_Campaign_Budget__c" tabstyle="MBM__Marketing_Campaign_Budget__c" showheader="true">
+        
+    <apex:stylesheet value="{!$Resource.MBM__panelGrid_columns}"/>
+	<apex:stylesheet value="{!$Resource.MBM__DI_MBM_Styles}"/>
+	
+        <apex:panelGrid columns="4" width="100%" columnClasses="columnsfour" bgcolor="#F3F3EC">
+            
+                <apex:outputText value="Gross Expenses" styleClass="boldText" />
+                <apex:outputText value="Partner Funding Requested" styleClass="boldText" />
+                <apex:outputText value="Partner Funding Approved" styleClass="boldText" />
+                <apex:outputText value="Net Expenses" styleClass="boldText"/>
+                                                
+                <apex:outputField value="{!MBM__Marketing_Campaign_Budget__c.MBM__Gross_Expenses_Total__c}" />
+                <apex:outputField value="{!MBM__Marketing_Campaign_Budget__c.MBM__Partner_Funds_Requested_Total__c}" />
+                <apex:outputField value="{!MBM__Marketing_Campaign_Budget__c.MBM__Partner_Funds_Approved_Total__c}" />
+                <apex:outputField value="{!MBM__Marketing_Campaign_Budget__c.MBM__Net_Expenses__c}" />
+    
+        </apex:panelGrid>
+
+</apex:page>

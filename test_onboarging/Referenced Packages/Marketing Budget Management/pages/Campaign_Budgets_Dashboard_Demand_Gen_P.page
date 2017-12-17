@@ -1,0 +1,29 @@
+<apex:page standardController="MBM__Marketing_Campaign_Budget__c" tabstyle="MBM__Marketing_Campaign_Budget__c" showheader="true">
+    
+    <apex:stylesheet value="{!$Resource.MBM__panelGrid_columns}"/>
+	<apex:stylesheet value="{!$Resource.MBM__DI_MBM_Styles}"/>
+	
+        <apex:panelGrid columns="3" width="100%" columnClasses="columnsthree" bgcolor="#F3F3EC">
+            
+                <apex:outputText value="Expected Leads From Campaign" styleClass="boldText" />
+                <apex:outputText value="Actual Leads From Campaign" styleClass="boldText" />
+                <apex:outputText value="Campaign Gap" styleClass="boldText" />
+
+                                                
+                <apex:outputField value="{!MBM__Marketing_Campaign_Budget__c.MBM__Expected_Campaign_Leads__c}" />
+                <apex:outputField value="{!MBM__Marketing_Campaign_Budget__c.MBM__Campaign_Total_Leads__c}" />
+                <apex:outputField value="{!MBM__Marketing_Campaign_Budget__c.MBM__Gap_Leads__c}" />            
+                
+                <apex:outputText value="Expected Opportunities From Campaign" styleClass="boldText"/>
+                <apex:outputText value="Actual Opportunities From Campaign" styleClass="boldText"/>
+                <apex:outputText value="Campaign Gap" styleClass="boldText"/>                
+                
+                <apex:outputField value="{!MBM__Marketing_Campaign_Budget__c.MBM__Expected_Campaign_Opportunities__c}" />
+                <apex:outputField value="{!MBM__Marketing_Campaign_Budget__c.MBM__Campaign_Total_Opportunities__c}" />
+                <apex:outputField value="{!MBM__Marketing_Campaign_Budget__c.MBM__Gap_Opportunities__c}" />          
+    
+        </apex:panelGrid>
+  
+
+
+</apex:page>

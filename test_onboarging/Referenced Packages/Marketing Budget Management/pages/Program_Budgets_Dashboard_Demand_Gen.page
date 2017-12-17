@@ -1,0 +1,25 @@
+<apex:page standardController="MBM__Marketing_Program_Budget__c" extensions="MBM.Marketing_Programs" tabstyle="MBM__Marketing_Program_Budget__c" showheader="true">
+    
+    <apex:stylesheet value="{!$Resource.MBM__panelGrid_columns}"/>
+
+        <apex:panelGrid columns="3" width="100%" columnClasses="columnsthree" bgcolor="#F3F3EC">
+            
+                <apex:outputText value="Budgeted Cost Per Expected Lead" style="font-weight:bold" />
+                <apex:outputText value="Gross Expenses Per Expected Lead" style="font-weight:bold" />
+                <apex:outputText value="Net Expenses Per Expected Lead" style="font-weight:bold" />
+                                                
+                <apex:outputField value="{!marketingCalculations.MBM__costPerLeadBudgeted__c}" />
+                <apex:outputField value="{!marketingCalculations.MBM__costPerLeadActual__c}" />
+                <apex:outputField value="{!marketingCalculations.MBM__costPerLeadNet__c}" />
+                
+                <apex:outputText value="Budgeted Cost Per Expected Opportunity" style="font-weight:bold"/>
+                <apex:outputText value="Gross Expenses Per Expected Opportunity" style="font-weight:bold"/>
+                <apex:outputText value="Net Expenses Per Expected Opportunity" style="font-weight:bold"/>                
+
+                <apex:outputField value="{!marketingCalculations.MBM__costPerOpportunityBudgeted__c}" />                
+                <apex:outputField value="{!marketingCalculations.MBM__costPerOpportunityActual__c}" />            
+                <apex:outputField value="{!marketingCalculations.MBM__costPerOpportunityNet__c}" />
+                    
+        </apex:panelGrid>
+ 
+</apex:page>

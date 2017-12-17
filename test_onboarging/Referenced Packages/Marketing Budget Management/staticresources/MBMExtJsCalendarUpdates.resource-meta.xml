@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StaticResource xmlns="http://soap.sforce.com/2006/04/metadata">
+    <cacheControl>Private</cacheControl>
+    <contentType>application/octet-stream</contentType>
+    <description>required updates for ExtJs calendar to work in the MBM environment (with custom objects)</description>
+</StaticResource>

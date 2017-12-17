@@ -1,0 +1,23 @@
+<apex:page standardController="MBM__Marketing_Program_Budget__c" extensions="MBM.Marketing_Programs" tabstyle="MBM__Marketing_Program_Budget__c" showheader="true">
+    
+    <apex:stylesheet value="{!$Resource.MBM__panelGrid_columns}"/>
+
+        <apex:panelGrid columns="5" width="100%" columnClasses="columnsfive" bgcolor="#F3F3EC">
+            
+                <apex:outputText value="Gross Expenses" style="font-weight:bold" />
+                <apex:outputText value="Partner Funding" style="font-weight:bold" />
+                <apex:outputText value="Net Expenses" style="font-weight:bold"/>
+                <apex:outputText value="Total Budget" style="font-weight:bold"/>
+                <apex:outputText value="Total Budget Remaining" style="font-weight:bold"/>
+
+                <apex:outputField value="{!marketingCalculations.MBM__grossExpenses__c}" />
+                <apex:outputField value="{!marketingCalculations.MBM__partnerFunding__c}" />
+                <apex:outputField value="{!marketingCalculations.MBM__netExpenses__c}" />
+                <apex:outputField value="{!marketingCalculations.MBM__totalBudget__c}" />
+                <apex:outputField value="{!marketingCalculations.MBM__totalBudgetRemaining__c}" />                                                                
+                                                
+              
+    
+        </apex:panelGrid>
+
+</apex:page>

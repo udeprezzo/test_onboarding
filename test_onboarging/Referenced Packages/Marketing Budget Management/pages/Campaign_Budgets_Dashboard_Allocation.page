@@ -1,0 +1,16 @@
+<apex:page standardController="MBM__Marketing_Campaign_Budget__c" tabstyle="MBM__Marketing_Campaign_Budget__c" showheader="true">
+    
+    <apex:stylesheet value="{!$Resource.MBM__panelGrid_columns}"/>
+    <apex:stylesheet value="{!$Resource.MBM__DI_MBM_Styles}"/>
+     
+        <apex:panelGrid columns="2" width="100%" columnClasses="columnstwo" bgcolor="#F3F3EC">
+            
+                <apex:outputText value="Budget Allocated to Campaign" styleClass="boldText"  />
+                <apex:outputText value="Total Budget Remaining" styleClass="boldText"/>
+
+                <apex:outputField value="{!MBM__Marketing_Campaign_Budget__c.MBM__Campaign_Budget__c}" />
+                <apex:outputField value="{!MBM__Marketing_Campaign_Budget__c.MBM__Remaining_Budget__c}" />
+    
+        </apex:panelGrid>
+ 
+</apex:page>

@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>Marketing_Campaign_Budgets_Edit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>Marketing_Campaign_Budgets_Edit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Actual_Cost_Per_Expected_Lead__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(Expected_Campaign_Leads__c = 0, 0, Gross_Expenses_Total__c  /  Expected_Campaign_Leads__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Gross Expenses Per Expected Lead</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Cost_Per_Expected_Opportunity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(Expected_Campaign_Opportunities__c = 0, 0, Gross_Expenses_Total__c  /  Expected_Campaign_Opportunities__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Gross Expenses Per Expected Opportunity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Budget_Allocated_to_Campaign__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Campaign_Budget__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Budget Allocated to Campaign</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Budgeted_Cost_Per_Expected_Lead__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(Expected_Campaign_Leads__c = 0, 0 ,Campaign_Budget__c / Expected_Campaign_Leads__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Budgeted Cost Per Expected Lead</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_Actual_Cost_Input__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Campaign Actual Cost [Input]</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Campaign_Budget__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( Use_Values_From_Salesforce_Campaign__c = TRUE, Salesforce_Campaign__r.BudgetedCost ,  Campaign_Budgeted_Cost_Input__c  )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Campaign Budget</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_Budgeted_Cost_Input__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Campaign Budgeted Cost [Input]</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_Description_Input__c</fullName>
+        <deprecated>false</deprecated>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Campaign Description [Input]</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Campaign_End_Date_Input__c</fullName>
+        <defaultValue>today()</defaultValue>
+        <deprecated>false</deprecated>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Campaign End Date [Input]</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_End_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <formula>IF( Use_Values_From_Salesforce_Campaign__c = TRUE, Salesforce_Campaign__r.EndDate,   Campaign_End_Date_Input__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Campaign End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_Expected_Response_Input__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Campaign Expected Response (%) [Input]</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_Expected_Revenue_Input__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Campaign Expected Revenue [Input]</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <formula>Salesforce_Campaign__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Salesforce Campaign Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Campaign_Start_Date_Input__c</fullName>
+        <defaultValue>today()</defaultValue>
+        <deprecated>false</deprecated>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Campaign Start Date [Input]</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_Start_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <formula>IF( Use_Values_From_Salesforce_Campaign__c = TRUE, Salesforce_Campaign__r.StartDate,    Campaign_Start_Date_Input__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Campaign Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_Status_Input__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Campaign Status [Input]</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Planned</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aborted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_Total_Leads_Input__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Campaign Total Leads [Input]</label>
+        <precision>9</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Campaign_Total_Leads__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( Use_Values_From_Salesforce_Campaign__c = TRUE, Salesforce_Campaign__r.NumberOfLeads,     Campaign_Total_Leads_Input__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Actual Leads From Campaign</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Campaign_Total_Opportunities_Input__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Campaign Total Opportunities [Input]</label>
+        <precision>9</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Campaign_Total_Opportunities__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( Use_Values_From_Salesforce_Campaign__c = TRUE, Salesforce_Campaign__r.NumberOfOpportunities,      Campaign_Total_Opportunities_Input__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Actual Opportunities From Campaign</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Campaign_Type_Input__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Campaign Type [Input]</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Conference</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Webinar</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade Show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Public Relations</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Referral Program</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Banner Ads</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Direct Mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telemarketing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <formula>IF( Use_Values_From_Salesforce_Campaign__c = TRUE,  TEXT(Salesforce_Campaign__r.Type) ,  TEXT( Campaign_Type_Input__c ) )</formula>
+        <label>Campaign Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Expected_Campaign_Leads__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Expected Campaign Leads</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Expected_Campaign_Opportunities__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Expected Campaign Opportunities</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Expected_Leads_From_Campaign__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Expected_Campaign_Leads__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Expected Leads From Campaign</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Expected_Opportunities_From_Campaign__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Expected_Campaign_Opportunities__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Expected Opportunities From Campaign</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Gap_Leads__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Campaign_Total_Leads__c -  Expected_Campaign_Leads__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Gap Leads</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Gap_Opportunities__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Campaign_Total_Opportunities__c -  Expected_Campaign_Opportunities__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Gap Opportunities</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Gross_Cost_Per_Campaign_Opportunity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Gross_Expenses_Total__c  /  Campaign_Total_Opportunities__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Gross Cost Per Campaign Opportunity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Gross_Cost_Per_Lead__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Gross_Expenses_Total__c  /  Campaign_Total_Leads__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Gross Cost Per Campaign Lead</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Gross_Expenses_Input__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Gross Expenses [Input]</label>
+        <precision>14</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Gross_Expenses_Total__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( Manual_Expense_Calculation__c = True,   Salesforce_Campaign__r.ActualCost  ,  Gross_Expenses__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Gross Expenses</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Gross_Expenses__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Gross Expenses [Rollup]</label>
+        <summarizedField>Budget_Expense_Item__c.Expense_Amount__c</summarizedField>
+        <summaryForeignKey>Budget_Expense_Item__c.Marketing_Campaign_Budget__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Manual_Expense_Calculation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>When checked, this box enables total expenses to be entered directly in the Actual Cost field on the Salesforce Campaign.  When unchecked, Gross Expenses for the Marketing Campaign Budget are calculated from from the Budget Expense Items related list.</inlineHelpText>
+        <label>Enter Campaign Actual Cost Directly</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Manual_Partner_Funds_Calculation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>When checked, this box enables Requested Partner Funds and Approved Partner Funds to be entered directly.  When unchecked, Partner Funds are calculated from from the Partner Funds related list.</inlineHelpText>
+        <label>Enter Partner Funds Directly</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Marketing_Program_Budget__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Marketing Program Budget</label>
+        <referenceTo>Marketing_Program_Budget__c</referenceTo>
+        <relationshipLabel>Marketing Campaign Budgets</relationshipLabel>
+        <relationshipName>Marketing_Campaign_Budgets</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Net_Cost_Per_Campaign_Lead__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Net_Expenses__c  /  Campaign_Total_Leads__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Net Cost Per Campaign Lead</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Net_Cost_Per_Campaign_Opportunity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Net_Expenses__c  /  Campaign_Total_Opportunities__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Net Cost Per Campaign Opportunity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Net_Expenses_Per_Expected_Lead__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(Expected_Campaign_Leads__c = 0, 0,  Net_Expenses__c  / Expected_Campaign_Leads__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Net Expenses Per Expected Lead</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Net_Expenses_Per_Expected_Opportunity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(Expected_Campaign_Opportunities__c = 0, 0, Net_Expenses__c / Expected_Campaign_Opportunities__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Net Expenses Per Expected Opportunity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Net_Expenses__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Gross_Expenses_Total__c  -  Partner_Funds_Approved_Total__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Net Expenses</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Partner_Funds_Approved_Input__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Partner Funds Approved [Input]</label>
+        <precision>14</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Partner_Funds_Approved_Total__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( Manual_Partner_Funds_Calculation__c =True,  Partner_Funds_Approved_Input__c ,  Partner_Funds_Approved__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Partner Funds Approved</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Partner_Funds_Approved__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Partner Funds Approved [Rollup]</label>
+        <summarizedField>Partner_Funds__c.Amount_Approved__c</summarizedField>
+        <summaryForeignKey>Partner_Funds__c.Marketing_Campaign_Budget__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Partner_Funds_Requested_Input__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Partner Funds Requested [Input]</label>
+        <precision>14</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Partner_Funds_Requested_Total__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF( Manual_Partner_Funds_Calculation__c =True, Partner_Funds_Requested_Input__c , Partner_Funds_Requested__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Partner Funds Requested</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Partner_Funds_Requested__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Partner Funds Requested [Rollup]</label>
+        <summarizedField>Partner_Funds__c.Amount_Requested__c</summarizedField>
+        <summaryForeignKey>Partner_Funds__c.Marketing_Campaign_Budget__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Planned_Cost_Per_Expected_Opportunity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(Expected_Campaign_Opportunities__c = 0, 0, Campaign_Budget__c  /  Expected_Campaign_Opportunities__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Budgeted Cost Per Expected Opportunity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Remaining_Budget__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Campaign_Budget__c -  Net_Expenses__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Remaining Budget</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Salesforce_Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Salesforce Campaign</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Marketing Campaign Budgets</relationshipLabel>
+        <relationshipName>Marketing_Campaign_Budgets</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Use_Values_From_Salesforce_Campaign__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Use Values From Salesforce Campaign</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Marketing Campaign Budget</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Marketing Campaign Budget Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Marketing Campaign Budgets</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Marketing_Program_Budget__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Campaign_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Campaign_Budget__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Campaign_Start_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Campaign_End_Date__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Less_than_zero_Leads</fullName>
+        <active>true</active>
+        <errorConditionFormula>Expected_Campaign_Leads__c &lt; 0</errorConditionFormula>
+        <errorDisplayField>Expected_Campaign_Leads__c</errorDisplayField>
+        <errorMessage>Expected leads cannot be negative.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Less_than_zero_Opportunities</fullName>
+        <active>true</active>
+        <errorConditionFormula>Expected_Campaign_Opportunities__c &lt; 0</errorConditionFormula>
+        <errorDisplayField>Expected_Campaign_Opportunities__c</errorDisplayField>
+        <errorMessage>Expected opportunities cannot be negative.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Delete</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Delete</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>if (confirm(&apos;Are you sure?&apos;))   {
+               
+window.location.href=&quot;{!URLFOR( $Action.Marketing_Campaign_Budget__c.Delete ,  Marketing_Campaign_Budget__c.Id, null,true)} &quot;
+               
+               
+            }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Edit</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Edit</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/MBM__Marketing_Campaign_Budgets_Edit?retURL={!Marketing_Campaign_Budget__c.Id}&amp;id={!Marketing_Campaign_Budget__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>New</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/MBM__Marketing_Campaign_Budgets_Edit?save_new=1&amp;retURL={!Marketing_Campaign_Budget__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Marketing_Campaign_Budget</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>New Marketing Campaign Budget</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/MBM__Marketing_Campaign_Budgets_Edit?save_new=1&amp;retURL={!Marketing_Program_Budget__c.Id}&amp;progBudget={!Marketing_Program_Budget__c.Id}</url>
+    </webLinks>
+</CustomObject>

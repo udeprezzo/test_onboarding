@@ -1,0 +1,20 @@
+<apex:page standardController="MBM__Marketing_Program_Budget__c" extensions="MBM.Marketing_Programs" tabstyle="MBM__Marketing_Program_Budget__c" showheader="true">
+    
+    <apex:stylesheet value="{!$Resource.MBM__panelGrid_columns}"/>
+
+        <apex:panelGrid columns="4" width="100%" columnClasses="columnsfour" bgcolor="#F3F3EC">
+            
+                <apex:outputText value="Expected Leads From Campaigns" style="font-weight:bold" />
+                <apex:outputText value="Program Gap" style="font-weight:bold" />
+                <apex:outputText value="Expected Opportunities From Campaigns" style="font-weight:bold"/>
+                <apex:outputText value="Program Gap" style="font-weight:bold"/>
+
+                <apex:outputField value="{!marketingCalculations.MBM__expectedLeads__c}" />
+                <apex:outputField value="{!marketingCalculations.MBM__programGapLeads__c}" />  
+                <apex:outputField value="{!marketingCalculations.MBM__expectedOpportunities__c}" />  
+                <apex:outputField value="{!marketingCalculations.MBM__programGapOpportunities__c}" />                                                              
+    
+        </apex:panelGrid>
+
+
+</apex:page>

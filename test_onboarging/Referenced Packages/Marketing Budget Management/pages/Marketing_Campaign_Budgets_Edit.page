@@ -1,0 +1,213 @@
+<apex:page standardController="MBM__Marketing_Campaign_Budget__c" extensions="MBM.Marketing_Campaigns_Edit" tabstyle="MBM__Marketing_Campaign_Budget__c" showheader="true">
+
+    <apex:sectionHeader title="Marketing Campaign Budgets Edit" subtitle="{!IF($CurrentPage.parameters.save_new = '1', 'New Marketing Campaign Budget', Budget.name)}"/>  
+	
+	<!-- Load CSS -->
+    <apex:stylesheet value="{!URLFOR($Resource.MBM__ExtJS4, '/resources/css/ext-all.css')}" />
+	<apex:stylesheet value="{!$Resource.MBM__panelGrid_columns}"/>
+    <apex:stylesheet value="{!$Resource.MBM__DI_MBM_Styles}"/>
+    
+    <!-- Load JavaScript -->    
+    <apex:includeScript value="{!URLFOR($Resource.MBM__ExtJS4, '/ext-all.js')}" />
+  
+    
+    <apex:includeScript value="{!$Resource.MBM__DI_MBM_ExtJS_Window}" />
+           
+    
+    <apex:form >
+    
+	    <apex:outputText value="{!Budget.MBM__Salesforce_Campaign__c}" rendered="false"/>
+
+	    <apex:actionFunction action="{!selectCampaign}" name="selectCampaignSupport" rerender="editRegion">
+	        <apex:param name="selectedCampaignID" assignTo="{!selectedCampaignID}" value="" />
+	        <apex:param name="selectedCampaignName" assignTo="{!selectedCampaignName}" value="" />
+	    </apex:actionFunction>
+
+    	<apex:outputPanel id="editRegion">
+
+		    <apex:PageBlock title="Marketing Campaign Budget Edit" mode="edit" >
+
+		        <apex:pageBlockButtons >
+		                <apex:commandButton action="{!saveBudget}" value="Save" />
+		                <apex:commandButton action="{!cancel}" value="Cancel"/>
+		        </apex:pageBlockButtons>
+
+		        <apex:pageBlockSection columns="2" title="Information">
+		        	<apex:pageBlockSection columns="1" >
+		            	<apex:inputField value="{!Budget.Name}" required="true"/>
+		            	<apex:inputField value="{!Budget.MBM__Expected_Campaign_Leads__c}" />
+		        	</apex:pageBlockSection>
+		        	<apex:pageBlockSection columns="1" >
+		            <apex:inputField value="{!Budget.MBM__Marketing_Program_Budget__c}" required="true" />		            
+		            <apex:inputField value="{!Budget.MBM__Expected_Campaign_Opportunities__c}" />
+		            </apex:pageBlockSection>
+		        </apex:pageBlockSection>
+
+	        	<apex:PageBlockSection title="Campaign Details" columns="2">    
+                 	<apex:actionRegion > 
+						<apex:pageBlockSection columns="1" >
+								                    
+							<apex:selectList value="{!New_Existing}" size="3" id="campaignTypeSelect" label="Campaign Preference">
+							    <apex:actionSupport event="onclick" rerender="editRegion"/>
+							    <apex:selectOption itemValue="existing" itemLabel="Select Existing Salesforce Campaign"/>
+							    <apex:selectOption itemValue="new" itemLabel="Create New Salesforce Campaign"/>
+							    <apex:selectOption itemValue="manual" itemLabel="Do Not Use Salesforce Campaign"/>                    
+							</apex:selectList>
+							
+							<apex:pageBlockSectionItem rendered="{!New_Existing = 'existing'}">
+							
+		 						<apex:outputLabel value="Select Active Campaign" for="campaignSelectInput"/>
+		 						
+								<apex:outputPanel styleClass="lookupInput" rendered="{!New_Existing = 'existing'}">	
+									<input id="campaignSelectInput" type="text" value="{!selectedCampaignName}" onclick="showExtJSGrid('{!initiallySelectedCampaignId}');" style="width:126px;" size="20" maxlength="255" />                      
+									<a onclick="showExtJSGrid('{!initiallySelectedCampaignId}');">						
+										<apex:image id="imgLookupIconSelectCampaign" value="/s.gif" styleClass="lookupIcon"  onmouseover="this.className = 'lookupIconOn';" 
+		                              	onmouseout="this.className = 'lookupIcon';"  
+		                              	style="cursor: pointer;"/>						
+									</a>
+								</apex:outputPanel>
+		                  	
+		                  	</apex:pageBlockSectionItem>
+	                   
+						</apex:pageBlockSection>
+                    </apex:actionRegion>
+                               
+					<apex:pageBlockSection columns="1" rendered="{!New_Existing = 'existing'}" >
+	
+			            <apex:outputField value="{!selectedCampaign.Name}" id="Campaign_Name_E" />
+			            <apex:inputField value="{!selectedCampaign.Type}" id="Campaign_Type_E" />
+			            
+			            <apex:inputField value="{!selectedCampaign.StartDate}" id="Campaign_StartDate_E" />
+			            <apex:inputField value="{!selectedCampaign.EndDate}" id="Campaign_EndDate_E" />
+			            
+			            <apex:inputField value="{!selectedCampaign.ExpectedRevenue}" id="Campaign_ExpectedRevenue_E" />
+			            <apex:inputField value="{!selectedCampaign.BudgetedCost}" id="Campaign_BudgetedCost_E" />
+			            
+			            <apex:inputField value="{!selectedCampaign.Status}" id="Campaign_Status_E" />
+			            <apex:inputField value="{!selectedCampaign.ExpectedResponse}" id="Campaign_ExpectedResponse_E" />
+			            
+			            <apex:inputField value="{!selectedCampaign.Description}" id="Campaign_Description_E" />
+	                        
+					</apex:pageBlockSection>
+                
+		            <apex:pageBlockSection columns="1" rendered="{!New_Existing = 'new'}" >
+		
+						<apex:inputField value="{!newCampaign.name}" id="Campaign_New" />
+						<apex:inputField value="{!newCampaign.Type}" id="Campaign_Type" />
+						
+						<apex:inputField value="{!newCampaign.StartDate}" id="Campaign_StartDate" />
+						<apex:inputField value="{!newCampaign.EndDate}" id="Campaign_EndDate" />
+						
+						<apex:inputField value="{!newCampaign.ExpectedRevenue}" id="Campaign_ExpectedRevenue" />
+						<apex:inputField value="{!newCampaign.BudgetedCost}" id="Campaign_BudgetedCost" />
+						
+						<apex:inputField value="{!newCampaign.Status}" id="Campaign_Status" />
+						<apex:inputField value="{!newCampaign.ExpectedResponse}" id="Campaign_ExpectedResponse" />
+						
+						<apex:inputField value="{!newCampaign.Description}" id="Campaign_Description" />
+		                        
+		           	</apex:pageBlockSection>
+            
+					<apex:pageBlockSection columns="1" rendered="{!New_Existing = 'manual'}" >
+	
+						<apex:pageBlockSectionItem >
+			            	<apex:outputLabel value="Campaign Name" for="Campaign_Name_Manual" />
+			                <apex:outputText value="Not Using Salesforce Campaign" id="Campaign_Name_Manual" />
+		                </apex:pageBlockSectionItem>
+	                    
+		                <apex:pageBlockSectionItem >
+			            	<apex:outputLabel value="Type" for="Campaign_Type_Manual" />
+			                <apex:inputField value="{!Budget.MBM__Campaign_Type_Input__c}" id="Campaign_Type_Manual" />
+		                </apex:pageBlockSectionItem>
+	                    
+		                <apex:pageBlockSectionItem >
+		                	<apex:outputLabel value="Start Date" for="Campaign_StartDate_Manual"/>
+		                	<apex:inputField value="{!Budget.MBM__Campaign_Start_Date_Input__c}" id="Campaign_StartDate_Manual" />
+		                </apex:pageBlockSectionItem>
+	                
+		                <apex:pageBlockSectionItem >
+		                	<apex:outputLabel value="End Date" for="Campaign_EndDate_Manual"/>
+		                	<apex:inputField value="{!Budget.MBM__Campaign_End_Date_Input__c}" id="Campaign_EndDate_Manual" />
+		                </apex:pageBlockSectionItem>
+	                
+		                <apex:pageBlockSectionItem >
+		                	<apex:outputLabel value="Expected Revenue" for="Campaign_ExpectedRevenue_Manual"/>
+		                	<apex:inputField value="{!Budget.MBM__Campaign_Expected_Revenue_Input__c}" id="Campaign_ExpectedRevenue_Manual" />
+		                </apex:pageBlockSectionItem>
+	                
+		                <apex:pageBlockSectionItem >
+		                	<apex:outputLabel value="Budgeted Cost" for="Campaign_BudgetedCost_Manual"/>
+		                	<apex:inputField value="{!Budget.MBM__Campaign_Budgeted_Cost_Input__c}" id="Campaign_BudgetedCost_Manual" />
+		                </apex:pageBlockSectionItem>
+	                
+		                <apex:pageBlockSectionItem >
+		                	<apex:outputLabel value="Status" for="Campaign_Status_Manual"/>
+		                	<apex:inputField value="{!Budget.MBM__Campaign_Status_Input__c}" id="Campaign_Status_Manual" />
+		                </apex:pageBlockSectionItem>
+	                
+	                	<apex:pageBlockSectionItem >
+	                		<apex:outputLabel value="Expected Response (%)" for="Campaign_ExpectedResponse_Manual"/>
+	                		<apex:inputField value="{!Budget.MBM__Campaign_Expected_Response_Input__c}" id="Campaign_ExpectedResponse_Manual" />
+	                	</apex:pageBlockSectionItem>
+	                
+		                <apex:pageBlockSectionItem >
+		                	<apex:outputLabel value="Description" for="Campaign_Description_Manual"/>
+		                	<apex:inputField value="{!Budget.MBM__Campaign_Description_Input__c}" id="Campaign_Description_Manual" />
+		                </apex:pageBlockSectionItem>  
+	                      
+	                </apex:pageBlockSection>
+            
+        		</apex:PageBlockSection>
+        		
+        		<apex:pageBlockSection columns="2" title="Budget Preferences" >
+        		
+                	<apex:pageBlockSection columns="1">
+			            <apex:inputField value="{!Budget.MBM__Manual_Expense_Calculation__c}">
+			                <apex:actionSupport event="onclick" rerender="editRegion"/>
+			            </apex:inputField>
+			            
+			            <apex:inputField value="{!Budget.MBM__Manual_Partner_Funds_Calculation__c}">
+			                <apex:actionSupport event="onclick" rerender="editRegion"/>
+			            </apex:inputField>
+			            
+					</apex:pageBlockSection>
+					
+					<apex:pageBlockSection columns="1">
+		            	
+			            <apex:pageBlockSectionItem rendered="{!New_Existing = 'existing' && Budget.MBM__Manual_Expense_Calculation__c = True}" >
+							<apex:outputLabel value="Actual Cost" for="Campaign_ActualCost_E"/>	            
+				            <apex:inputField value="{!selectedCampaign.ActualCost}" id="Campaign_ActualCost_E"/>
+			            </apex:pageBlockSectionItem>
+         
+			            <apex:pageBlockSectionItem rendered="{!New_Existing = 'new' && Budget.MBM__Manual_Expense_Calculation__c = True}" >
+							<apex:outputLabel value="Actual Cost" for="Campaign_ActualCost"/>	  
+							<apex:inputField value="{!newCampaign.ActualCost}" id="Campaign_ActualCost" />           
+			            </apex:pageBlockSectionItem> 
+		            
+			            <apex:pageBlockSectionItem rendered="{!New_Existing = 'manual' && Budget.MBM__Manual_Expense_Calculation__c = True}" >
+							<apex:outputLabel value="Actual Cost" for="Campaign_ActualCost_Manual"/>	  
+							<apex:inputField value="{!Budget.MBM__Campaign_Actual_Cost_Input__c}" id="Campaign_ActualCost_Manual"/>           
+			            </apex:pageBlockSectionItem>	            
+		            	
+						
+	            		<apex:pageBlockSectionItem rendered="{!Budget.MBM__Manual_Partner_Funds_Calculation__c = True}" >
+							<apex:outputLabel value="Partner Funds Requested" for="partnerFundsRequested"/>	  
+			            	<apex:inputField value="{!Budget.MBM__Partner_Funds_Requested_Input__c}" id="partnerFundsRequested"/>
+	            		</apex:pageBlockSectionItem>
+	            		
+	            		<apex:pageBlockSectionItem rendered="{!Budget.MBM__Manual_Partner_Funds_Calculation__c = True}" >
+							<apex:outputLabel value="Partner Funds Approved" for="partnerFundsApproved"/>	  
+        		    		<apex:inputField value="{!Budget.MBM__Partner_Funds_Approved_Input__c}" id="partnerFundsApproved"/>
+            			</apex:pageBlockSectionItem>
+            			
+            			<apex:pageBlockSectionItem rendered="{!Budget.MBM__Manual_Partner_Funds_Calculation__c = False}"/>
+            			
+            		</apex:pageBlockSection>
+       			</apex:pageBlockSection>
+            
+    		</apex:PageBlock>
+    
+    	</apex:outputPanel>
+    
+    </apex:form>
+</apex:page>

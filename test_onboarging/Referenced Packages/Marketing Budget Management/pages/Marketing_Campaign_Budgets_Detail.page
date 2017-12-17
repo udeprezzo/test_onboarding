@@ -1,0 +1,11 @@
+<apex:page standardController="MBM__Marketing_Campaign_Budget__c" extensions="MBM.Marketing_Campaign_Budgets" tabstyle="MBM__Marketing_Campaign_Budget__c" showheader="true">
+        
+    <!--  page section part -->
+    <apex:sectionHeader title="Marketing Campaign Budget" subtitle="{!MBM__Marketing_Campaign_Budget__c.name}"/>
+    <apex:detail subject="{!MBM__Marketing_Campaign_Budget__c.id}" relatedList="false" title="false"/>
+    
+    <apex:relatedList title="Partner Funds" pageSize="10" list="Partner_Funds__r" />
+    
+    <apex:relatedList title="Expense Items" pageSize="10" list="Budget_Expense_Items__r" />    
+
+</apex:page>

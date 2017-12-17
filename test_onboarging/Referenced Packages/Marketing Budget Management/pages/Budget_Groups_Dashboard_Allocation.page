@@ -1,0 +1,20 @@
+<apex:page standardController="MBM__Marketing_Budget__c" extensions="MBM.Marketing_Budget_Groups" tabstyle="MBM__Marketing_Budget__c" showheader="true">
+    
+    <apex:stylesheet value="{!$Resource.MBM__panelGrid_columns}"/>
+    
+    
+
+        <apex:panelGrid columns="3" width="100%" columnClasses="columnsthree" bgcolor="#F3F3EC">
+            
+                <apex:outputText value="Total Available for Allocation" style="font-weight:bold" />
+                <apex:outputText value="Budget Allocated to Programs" style="font-weight:bold" />
+                <apex:outputText value="Remaining Funds Available for Allocation" style="font-weight:bold"/>
+                
+                <apex:outputField value="{!marketingCalculations.MBM__totalAvailableAllocation__c}" />
+                <apex:outputField value="{!marketingCalculations.MBM__budgetAllocatedToPrograms__c}" />
+                <apex:outputField value="{!marketingCalculations.MBM__remainingFundsForAllocation__c}" />
+                                    
+        </apex:panelGrid>       
+       
+
+</apex:page>

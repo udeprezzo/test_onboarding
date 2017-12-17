@@ -1,0 +1,14 @@
+eclipse.preferences.version=1
+endpointApiVersion=36.0
+endpointEnvironment=Other (Specify)
+endpointServer=test.salesforce.com
+httpsProtocol=true
+ideVersion=36.0
+keependpoint=false
+metadataFormatVersion=36.0
+namespacePrefix=
+packageName=unpackaged
+preferToolingDeployment=true
+projectIdentifier=IDE-7314284160148094640
+readTimeout=400
+username=udeprezzo@mpsa.com.onboarding

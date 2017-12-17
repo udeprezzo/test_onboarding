@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Internal_SLR_Geolocation__c</fullName>
+        <deprecated>false</deprecated>
+        <displayLocationInDecimal>true</displayLocationInDecimal>
+        <externalId>false</externalId>
+        <label>Internal SLR HomeAddress Geolocation</label>
+        <required>false</required>
+        <scale>6</scale>
+        <trackHistory>false</trackHistory>
+        <type>Location</type>
+    </fields>
+    <fields>
+        <fullName>NumberOfServicesToDripFeed__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Number Of Services To Drip Feed</label>
+        <precision>7</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>System_Jobs__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>System Jobs</label>
+        <picklist>
+            <picklistValues>
+                <fullName>BATCH_ServicesInJeopardy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BATCH_ServicesDispatched</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ChatterNotification</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>TerritoryLevel__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Territory Level</label>
+        <precision>14</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>
